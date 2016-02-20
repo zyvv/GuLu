@@ -20,6 +20,7 @@ class FallImageCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        loadImageErrorLabel.hidden = true
     }
     
     override func prepareForReuse() {
@@ -35,7 +36,10 @@ class FallImageCell: UICollectionViewCell {
         weak var weakSelf = self
         fallImageView.kf_setImageWithURL(NSURL(string: imageUrl)!, placeholderImage: colorsArray[i], optionsInfo: [.Transition(ImageTransition.Fade(1))]) { (image, error, cacheType, imageURL) -> () in
             if error != nil {
-                weakSelf!.loadImageErrorLabel.hidden = false
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    weakSelf!.loadImageErrorLabel.hidden = false
+                })
+                
             }
         }
     }
