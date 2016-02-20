@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ABm-Cr-m41">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--首页-->
+        <scene sceneID="EHn-Sb-bA6">
+            <objects>
+                <collectionViewController storyboardIdentifier="GLCollectionViewController" title="首页" id="SEi-nf-gJV" customClass="GLCollectionViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="edD-eO-E8i">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4sn-km-fdS">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="SEi-nf-gJV" id="XlQ-g8-FoJ"/>
+                            <outlet property="delegate" destination="SEi-nf-gJV" id="tQe-Xe-raX"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="A9h-J3-qhI">
+                        <barButtonItem key="leftBarButtonItem" image="showMenu" id="Rfe-De-3p2">
+                            <color key="tintColor" red="0.31764705882352939" green="0.79607843137254897" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="showMenuTableViewController:" destination="SEi-nf-gJV" id="tKE-dX-qJ5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="about" style="done" id="ade-0k-btF">
+                            <color key="tintColor" red="0.31764705879999999" green="0.79607843140000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="u6E-zj-Bul" kind="presentation" modalTransitionStyle="crossDissolve" id="JL7-v6-MTz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ce7-H2-6NZ" kind="presentation" identifier="presentAlbumVC" modalTransitionStyle="crossDissolve" id="Ots-XX-bdk"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJ3-gD-06d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1203" y="206"/>
+        </scene>
+        <!--美拍-->
+        <scene sceneID="Zli-J7-CEu">
+            <objects>
+                <collectionViewController storyboardIdentifier="MPCollectionViewController" title="美拍" id="Vat-sh-7P0" customClass="MPCollectionViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Btl-mK-X9U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Njv-CP-K48">
+                            <size key="itemSize" width="212" height="177"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="Vat-sh-7P0" id="LJM-Ni-IpP"/>
+                            <outlet property="delegate" destination="Vat-sh-7P0" id="D2r-IG-W61"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYq-zz-O9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194" y="935"/>
+        </scene>
+        <!--关于-->
+        <scene sceneID="5D8-yj-Dzq">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" title="关于" id="f8d-YD-G1o" customClass="AboutViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VEL-jx-gFy"/>
+                        <viewControllerLayoutGuide type="bottom" id="eoT-YA-1eR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BzZ-5Q-ATX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GuLuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iox-bG-b1J">
+                                <rect key="frame" x="196" y="215" width="209" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="bhK-ag-g42"/>
+                                    <constraint firstAttribute="width" constant="209" id="vLP-zh-TaZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应用内所有图片均来源于网络" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EY-Nz-Nbe">
+                                <rect key="frame" x="235" y="577" width="130" height="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1S-Ub-r2h">
+                                <rect key="frame" x="289" y="329.5" width="22" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咕噜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLQ-Mm-rVL">
+                                <rect key="frame" x="268" y="281" width="64" height="38.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" red="0.31764705879999999" green="0.79607843140000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOU-yW-ghJ">
+                                <rect key="frame" x="180" y="532" width="240" height="25"/>
+                                <gestureRecognizers/>
+                                <attributedString key="attributedText">
+                                    <fragment content="咕噜(GuLu) 使用的第三方 Pods">
+                                        <attributes>
+                                            <color key="NSColor" red="0.31764705879999999" green="0.79607843140000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="PingFangSC-Regular"/>
+                                            <font key="NSOriginalFont" size="17" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="feb-14-evW" appends="YES" id="2NV-Q4-tBO"/>
+                                </connections>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8EY-Nz-Nbe" firstAttribute="top" secondItem="qOU-yW-ghJ" secondAttribute="bottom" constant="20" id="77e-eM-saA"/>
+                            <constraint firstItem="qOU-yW-ghJ" firstAttribute="centerX" secondItem="BzZ-5Q-ATX" secondAttribute="centerX" id="8NJ-sh-geY"/>
+                            <constraint firstItem="e1S-Ub-r2h" firstAttribute="top" secondItem="fLQ-Mm-rVL" secondAttribute="bottom" constant="10" id="9hR-oR-wgJ"/>
+                            <constraint firstItem="iox-bG-b1J" firstAttribute="centerY" secondItem="BzZ-5Q-ATX" secondAttribute="centerY" id="D3H-5a-xOh"/>
+                            <constraint firstItem="fLQ-Mm-rVL" firstAttribute="top" secondItem="iox-bG-b1J" secondAttribute="bottom" constant="5" id="HoA-5t-3D7"/>
+                            <constraint firstItem="8EY-Nz-Nbe" firstAttribute="centerX" secondItem="BzZ-5Q-ATX" secondAttribute="centerX" id="ZCm-5v-rxo"/>
+                            <constraint firstItem="e1S-Ub-r2h" firstAttribute="centerX" secondItem="BzZ-5Q-ATX" secondAttribute="centerX" id="bnX-xK-nf6"/>
+                            <constraint firstItem="iox-bG-b1J" firstAttribute="centerX" secondItem="BzZ-5Q-ATX" secondAttribute="centerX" id="iU9-0D-XQL"/>
+                            <constraint firstItem="fLQ-Mm-rVL" firstAttribute="centerY" secondItem="BzZ-5Q-ATX" secondAttribute="centerY" id="qLS-jm-lKV"/>
+                            <constraint firstItem="eoT-YA-1eR" firstAttribute="top" secondItem="8EY-Nz-Nbe" secondAttribute="bottom" constant="10" id="scJ-PU-eR5"/>
+                            <constraint firstItem="fLQ-Mm-rVL" firstAttribute="centerX" secondItem="BzZ-5Q-ATX" secondAttribute="centerX" id="vqR-Gw-z25"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HoA-5t-3D7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="HXl-Av-b8m">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="4kn-Uy-lxX">
+                            <connections>
+                                <action selector="dismissSelfBarButtonItemAction:" destination="f8d-YD-G1o" id="O5s-NC-dT6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="appVersionLabel" destination="e1S-Ub-r2h" id="ecG-dm-RhZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xc-K0-13i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="feb-14-evW">
+                    <connections>
+                        <segue destination="Ub4-sb-Nuo" kind="show" id="AgO-XG-Tnw"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2794" y="-265"/>
+        </scene>
+        <!--Pods-->
+        <scene sceneID="GMm-uB-eTY">
+            <objects>
+                <tableViewController storyboardIdentifier="PodsTableViewController" title="Pods" id="Ub4-sb-Nuo" customClass="PodsTableViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="zgz-d6-ezo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Ub4-sb-Nuo" id="bbg-a7-ras"/>
+                            <outlet property="delegate" destination="Ub4-sb-Nuo" id="YDu-5C-Awg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9p-3y-fiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3466" y="-265"/>
+        </scene>
+        <!--相册-->
+        <scene sceneID="eTw-hh-wY7">
+            <objects>
+                <collectionViewController storyboardIdentifier="AlbumCollectionViewController" title="相册" id="TSI-j8-IrL" customClass="AlbumCollectionViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="Akb-Qk-eeN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewLayout key="collectionViewLayout" id="7Sv-JP-m5k"/>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="TSI-j8-IrL" id="t7P-DN-0r3"/>
+                            <outlet property="delegate" destination="TSI-j8-IrL" id="tCh-rj-ev3"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="61S-vC-fch">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="rNn-8W-PJl">
+                            <color key="tintColor" red="0.31764705879999999" green="0.79607843140000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="dismissSelfBarButtonItemAction:" destination="TSI-j8-IrL" id="xTv-bB-Ixi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G87-4v-2cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785" y="647"/>
+        </scene>
+        <!--左侧菜单-->
+        <scene sceneID="eUs-eD-aEi">
+            <objects>
+                <tableViewController storyboardIdentifier="MenuTableViewController" title="左侧菜单" id="YUL-LM-LYl" customClass="MenuTableViewController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="alP-8U-dKg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="YUL-LM-LYl" id="kVR-Ma-nNH"/>
+                            <outlet property="delegate" destination="YUL-LM-LYl" id="RI4-cw-HW0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zM5-l8-ZiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194" y="-475"/>
+        </scene>
+        <!--首页导航栏-->
+        <scene sceneID="kja-ws-uG8">
+            <objects>
+                <navigationController storyboardIdentifier="GLNavigationController" title="首页导航栏" automaticallyAdjustsScrollViewInsets="NO" id="ABm-Cr-m41" customClass="GLNavigationController" customModule="GuLu" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="X05-Rs-9RZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SEi-nf-gJV" kind="relationship" relationship="rootViewController" id="V49-mV-VxR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5gz-6m-yon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="206"/>
+        </scene>
+        <!--相册导航栏-->
+        <scene sceneID="0oV-af-3RV">
+            <objects>
+                <navigationController storyboardIdentifier="AlbumNavigationController" title="相册导航栏" automaticallyAdjustsScrollViewInsets="NO" id="ce7-H2-6NZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1X5-jM-yqp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TSI-j8-IrL" kind="relationship" relationship="rootViewController" id="we9-qF-pdn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJs-HB-Ewk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2098" y="647"/>
+        </scene>
+        <!--关于导航栏-->
+        <scene sceneID="h6T-Vp-wWa">
+            <objects>
+                <navigationController storyboardIdentifier="AboutNavigationController" title="关于导航栏" automaticallyAdjustsScrollViewInsets="NO" id="u6E-zj-Bul" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="58q-3U-ToO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f8d-YD-G1o" kind="relationship" relationship="rootViewController" id="PJQ-27-0zg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDf-Pa-eQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2098" y="-265"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GuLuLogo" width="209" height="169"/>
+        <image name="about" width="24" height="24"/>
+        <image name="showMenu" width="20" height="17"/>
+    </resources>
+</document>

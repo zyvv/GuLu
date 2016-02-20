@@ -1,0 +1,22 @@
+PODS:
+  - Alamofire (3.2.0)
+  - ENSwiftSideMenu (0.1)
+  - Kanna (1.0.4)
+  - Kingfisher (2.0.3)
+  - MobilePlayer (1.1.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - ENSwiftSideMenu (~> 0.1)
+  - Kanna (~> 1.0.0)
+  - Kingfisher (~> 2.0)
+  - MobilePlayer
+
+SPEC CHECKSUMS:
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  ENSwiftSideMenu: 4e17a97d1d92c1a9c7267993a167e27e0a10422d
+  Kanna: 537762df5e2203714769f8351340b3c724adb2bd
+  Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
+  MobilePlayer: 4430c379e41a98badbf516be9810f535ac6684e6
+
+COCOAPODS: 0.39.0
