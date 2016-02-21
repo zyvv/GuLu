@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let fallImageCellID = "FallImageCell"
 private let loadMoreCellID = "LoadMoreCell"
@@ -33,10 +34,17 @@ class GLCollectionViewController: UICollectionViewController, UICollectionViewDe
         self.collectionView?.registerNib(UINib(nibName: fallImageCellID, bundle: nil), forCellWithReuseIdentifier: fallImageCellID)
         self.collectionView?.registerNib(UINib(nibName: loadMoreCellID, bundle: nil), forCellWithReuseIdentifier: loadMoreCellID)
 
-        if self.title != nil && self.title == "首页" {
+        if self.title == "首页" { // stroyBorad的title
             self.title = "咕噜"
         }
-
+        
+        let offlineDataName = currentItemNumber < 0 ? "fuli" : cidByItemNumber(currentItemNumber)
+        if let realm = try? Realm(), offlineImageUrlsArrayData = OfflineImageUrlsArrayData.withName(offlineDataName , inRealm: realm) {
+            if let data = offlineImageUrlsArrayData.data,  offlineImageUrlsArray = NSKeyedUnarchiver.unarchiveObjectWithData(data) {
+                self.imagesArray = offlineImageUrlsArray as! [String]
+            }
+        }
+        
         updateItemImages(currentItemNumber)
     }
     

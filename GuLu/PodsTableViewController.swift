@@ -17,7 +17,8 @@ class PodsTableViewController: UITableViewController {
                      ("ENSwiftSideMenu", "https://github.com/evnaz/ENSwiftSideMenu"),
                      ("MobilePlayer", "https://github.com/mobileplayer/mobileplayer-ios"),
                      ("Kanna", "https://github.com/mobileplayer/mobileplayer-ios"),
-                     ("Alamofire", "https://github.com/Alamofire/Alamofire")]
+                     ("Alamofire", "https://github.com/Alamofire/Alamofire"),
+                     ("Realm", "https://realm.io")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

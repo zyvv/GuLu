@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import Kanna
+import RealmSwift
 
 let fuliBaseUrl = "http://www.dbmeinv.com/dbgroup/rank.htm?pager_offset="
 let itemBaseUrl = "http://www.dbmeinv.com/dbgroup/show.htm?cid="
@@ -19,6 +20,18 @@ struct MeiPaiLinks {
     var imageUrl: String?
     var htmlUrl: String?
 }
+
+//enum OfflineImageUrlArrayName: String {
+//    case 所有
+//    case 大胸妹
+//    case 小翘臀
+//    case 黑丝袜
+//    case 美腿控
+//    case 有颜值
+//    case 大杂烩
+//    case 福利
+//    case 美拍
+//}
 
 func cidByItemNumber(number: Int) -> String {
     switch number{
@@ -56,6 +69,14 @@ func requestItemImages(type: String, page: Int, failure: (NSError? -> Void)?, co
                     urls.append(node["src"]!)
                 }
                 if urls.count > 0 {
+                    if page == 1 {
+                        if let realm = try? Realm() {
+                            let offlineData = OfflineImageUrlsArrayData(name: type, data: NSKeyedArchiver.archivedDataWithRootObject(urls))
+                            let _ = try? realm.write {
+                                realm.add(offlineData, update: true)
+                            }
+                        }
+                    }
                     completion(urls)
                 }
             }
@@ -82,6 +103,16 @@ func requestFuliImages(page: Int, failure: (NSError? -> Void)?, completion: [Str
                     urls.append(node["src"]!)
                 }
                 if urls.count > 0 {
+                    
+                    if page == 1 {
+                        if let realm = try? Realm() {
+                            let offlineData = OfflineImageUrlsArrayData(name: "fuli", data: NSKeyedArchiver.archivedDataWithRootObject(urls))
+                            let _ = try? realm.write {
+                                realm.add(offlineData, update: true)
+                            }
+                        }
+                    }
+                    
                     completion(urls)
                 }
             }
@@ -102,15 +133,25 @@ func requestMeiPai(page: Int, failure: (NSError? -> Void)?, completion: [MeiPaiL
         if isSuccess {
 
             var links = [MeiPaiLinks]()
+            var imageUrls = [String]()
             if let doc = Kanna.HTML(html: html!, encoding: NSUTF8StringEncoding){
                 CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingASCII)
                 for node in doc.css("a"){
                     if (node["target"] != nil &&  node["target"] == "_videos_detail") {
                         let innerNode = node.css("img").first
                         links.append(MeiPaiLinks(imageUrl: innerNode!["src"], htmlUrl: node["href"]))
+                        imageUrls.append(innerNode!["src"]!)
                     }
                 }
                 if links.count > 0 {
+                    if page == 1 {
+                        if let realm = try? Realm() {
+                            let offlineData = OfflineImageUrlsArrayData(name: "meipai", data: NSKeyedArchiver.archivedDataWithRootObject(imageUrls))
+                            let _ = try? realm.write {
+                                realm.add(offlineData, update: true)
+                            }
+                        }
+                    }
                     completion(links)
                 }
             }
@@ -167,3 +208,30 @@ func handleVideoUrl(sourceUrl: String) -> String? {
     }
     return nil
 }
+
+class OfflineImageUrlsArrayData: Object {
+    
+    dynamic var name: String!
+    dynamic var data: NSData!
+    
+    var offlineImageUrlArray: [String]? {
+        return nil
+    }
+    
+    override class func primaryKey() -> String? {
+        return "name"
+    }
+    
+    convenience init(name: String, data: NSData) {
+        self.init()
+        
+        self.name = name
+        self.data = data
+    }
+    
+    class func withName(name: String, inRealm realm: Realm) -> OfflineImageUrlsArrayData? {
+        return realm.objects(OfflineImageUrlsArrayData).filter("name = %@", name).first
+    }
+}
+
+

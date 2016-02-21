@@ -7,4 +7,5 @@ pod 'ENSwiftSideMenu', '~> 0.1'
 pod "MobilePlayer"
 pod 'Kanna', '~> 1.0.0'
 pod 'Alamofire', '~> 3.0'
+pod 'RealmSwift'
 

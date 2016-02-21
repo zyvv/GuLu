@@ -89,6 +89,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Kanna.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/MobilePlayer.framework"
+  install_framework "Pods/Realm.framework"
+  install_framework "Pods/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
@@ -96,4 +98,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Kanna.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/MobilePlayer.framework"
+  install_framework "Pods/Realm.framework"
+  install_framework "Pods/RealmSwift.framework"
 fi

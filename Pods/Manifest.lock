@@ -4,6 +4,11 @@ PODS:
   - Kanna (1.0.4)
   - Kingfisher (2.0.3)
   - MobilePlayer (1.1.2)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
+  - RealmSwift (0.98.2):
+    - Realm (= 0.98.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -11,6 +16,7 @@ DEPENDENCIES:
   - Kanna (~> 1.0.0)
   - Kingfisher (~> 2.0)
   - MobilePlayer
+  - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
@@ -18,5 +24,7 @@ SPEC CHECKSUMS:
   Kanna: 537762df5e2203714769f8351340b3c724adb2bd
   Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
   MobilePlayer: 4430c379e41a98badbf516be9810f535ac6684e6
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
+  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
 
 COCOAPODS: 0.39.0

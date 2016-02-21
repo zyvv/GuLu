@@ -8,6 +8,7 @@
 
 import UIKit
 import MobilePlayer
+import RealmSwift
 
 private let mPCellID = "MPCell"
 private let loadMoreCellID = "LoadMoreCell"
@@ -37,6 +38,17 @@ class MPCollectionViewController: UICollectionViewController {
         
         let showMenuTableViewControllerBarButtonItem = UIBarButtonItem(image: UIImage(named: "showMenu"), style: .Plain, target: self, action: "showMenuTableViewController:")
         self.navigationItem.leftBarButtonItem = showMenuTableViewControllerBarButtonItem
+        
+        if let realm = try? Realm(), offlineImageUrlsArrayData = OfflineImageUrlsArrayData.withName("meipai" , inRealm: realm) {
+            if let data = offlineImageUrlsArrayData.data,  offlineImageUrlsArray = NSKeyedUnarchiver.unarchiveObjectWithData(data) {
+                let imagesArray = offlineImageUrlsArray as! [String]
+                var offlineLinks = [MeiPaiLinks]()
+                for url in imagesArray {
+                    offlineLinks.append(MeiPaiLinks(imageUrl: url, htmlUrl: "error_url"))
+                }
+                self.links = offlineLinks
+            }
+        }
         
         updateMeiPais()
 

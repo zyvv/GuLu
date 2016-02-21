@@ -69,6 +69,9 @@ class MenuTableViewController: UITableViewController {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
             let glCollectionViewController = mainStoryboard.instantiateViewControllerWithIdentifier("GLCollectionViewController") as! GLCollectionViewController
             glCollectionViewController.title = titlesArray[indexPath.section][indexPath.row]
+            if glCollectionViewController.title == "所有" {
+                glCollectionViewController.title = "咕噜"
+            }
             if indexPath.section == 1 {
                 glCollectionViewController.currentItemNumber = -1
             } else {
