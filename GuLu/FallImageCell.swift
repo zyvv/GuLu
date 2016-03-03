@@ -37,7 +37,10 @@ class FallImageCell: UICollectionViewCell {
         fallImageView.kf_setImageWithURL(NSURL(string: imageUrl)!, placeholderImage: colorsArray[i], optionsInfo: [.Transition(ImageTransition.Fade(1))]) { (image, error, cacheType, imageURL) -> () in
             if error != nil {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    weakSelf!.loadImageErrorLabel.hidden = false
+                    if (weakSelf != nil) {
+                        weakSelf!.loadImageErrorLabel.hidden = false
+                    }
+                    
                 })
                 
             }

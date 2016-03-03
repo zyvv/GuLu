@@ -238,7 +238,7 @@ class GLCollectionViewController: UICollectionViewController, UICollectionViewDe
             return CGSize(width: UIScreen.mainScreen().bounds.width, height: 80)
         }
         
-        let frame: CGRect = CGRectInset(CGRectMake(0, 0, kScreenWidth()/2, kScreenWidth()/2*3/2), 3, 3);
+        let frame: CGRect = CGRectInset(CGRectMake(0, 0, kScreenWidth()/2, kScreenWidth()/2*4/3), 3, 3);
         return CGSizeMake(frame.size.width, frame.size.height)
     }
     

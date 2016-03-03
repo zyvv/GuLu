@@ -62,7 +62,8 @@ class PodsTableViewController: UITableViewController {
             webVC.url = type.1
             self.navigationController?.pushViewController(webVC, animated: true)
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
     
 }
