@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView = WKWebView(frame: CGRectZero)
     var url: String = ""
@@ -20,6 +20,8 @@ class WebViewController: UIViewController {
         self.webView.frame = self.view.bounds
         self.view.addSubview(self.webView)
         self.webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+        self.webView.navigationDelegate = self;
+        GLNetworkActivity().addGLNetworkActivityCount(true)
         
     }
     
@@ -42,6 +44,14 @@ class WebViewController: UIViewController {
         if (keyPath == "title") {
             title = webView.title
         }
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        GLNetworkActivity().addGLNetworkActivityCount(false)
+    }
+    
+    func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+        GLNetworkActivity().addGLNetworkActivityCount(false)
     }
 
 }

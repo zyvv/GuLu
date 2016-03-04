@@ -21,17 +21,28 @@ struct MeiPaiLinks {
     var htmlUrl: String?
 }
 
-//enum OfflineImageUrlArrayName: String {
-//    case 所有
-//    case 大胸妹
-//    case 小翘臀
-//    case 黑丝袜
-//    case 美腿控
-//    case 有颜值
-//    case 大杂烩
-//    case 福利
-//    case 美拍
-//}
+
+class GLNetworkActivity {
+    var glNetworkActivityCount = 0 {
+        didSet {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = (glNetworkActivityCount > 0)
+        }
+    }
+    
+    func addGLNetworkActivityCount (isAdd: Bool) {
+        if isAdd {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.glNetworkActivityCount++
+            }
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue()) {
+            self.glNetworkActivityCount--
+        }
+    }
+
+}
+
 
 func cidByItemNumber(number: Int) -> String {
     switch number{
@@ -86,7 +97,9 @@ func requestItemImages(type: String, page: Int, failure: (NSError? -> Void)?, co
             }
             
         }
+        GLNetworkActivity().addGLNetworkActivityCount(false)
     }
+    GLNetworkActivity().addGLNetworkActivityCount(true)
 }
 
 func requestFuliImages(page: Int, failure: (NSError? -> Void)?, completion: [String]? -> Void){
@@ -122,7 +135,9 @@ func requestFuliImages(page: Int, failure: (NSError? -> Void)?, completion: [Str
             }
             
         }
+        GLNetworkActivity().addGLNetworkActivityCount(false)
     }
+    GLNetworkActivity().addGLNetworkActivityCount(true)
 }
 
 func requestMeiPai(page: Int, failure: (NSError? -> Void)?, completion: [MeiPaiLinks]? -> Void){
@@ -161,7 +176,9 @@ func requestMeiPai(page: Int, failure: (NSError? -> Void)?, completion: [MeiPaiL
             }
             
         }
+        GLNetworkActivity().addGLNetworkActivityCount(false)
     }
+    GLNetworkActivity().addGLNetworkActivityCount(true)
 }
 
 func requestVideo(url: String, failure: (NSError? -> Void)?, completion: String? -> Void){
@@ -194,9 +211,10 @@ func requestVideo(url: String, failure: (NSError? -> Void)?, completion: String?
             if failure != nil {
                 failure!(response.result.error)
             }
-            
         }
+        GLNetworkActivity().addGLNetworkActivityCount(false)
     }
+    GLNetworkActivity().addGLNetworkActivityCount(true)
 }
 
 func handleVideoUrl(sourceUrl: String) -> String? {

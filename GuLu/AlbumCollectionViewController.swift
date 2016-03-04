@@ -19,20 +19,21 @@ class AlbumCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         configViewController()
-        
-        self.automaticallyAdjustsScrollViewInsets = false
 
+        if Float(UIDevice.currentDevice().systemVersion) < 9.0 {
+            self.collectionView?.frame = CGRectMake(0, -10, kScreenWidth(), kScreenHeight())
+        }
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = self.collectionView!.bounds.size
         flowLayout.scrollDirection = .Horizontal
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        
+        flowLayout.sectionInset = UIEdgeInsetsZero
         self.collectionView?.collectionViewLayout = flowLayout
         self.collectionView?.pagingEnabled = true
         self.collectionView!.registerNib(UINib(nibName: albumCellID, bundle: nil), forCellWithReuseIdentifier: albumCellID)
         self.collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: showImageFromIndex, inSection: 0), atScrollPosition: .Left, animated: false)
+        self.title = "\(showImageFromIndex + 1)/\(imageUrlsArray.count)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +57,11 @@ class AlbumCollectionViewController: UICollectionViewController {
         cell.backgroundColor = UIColor.blackColor()
         return cell
     }
-    
-    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        self.title = "\(indexPath.item+1)/\(imageUrlsArray.count)"
-    }
 
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.title = "\(Int(scrollView.contentOffset.x / kScreenWidth() + 1))/\(imageUrlsArray.count)"
+    }
+    
+    
 
 }
